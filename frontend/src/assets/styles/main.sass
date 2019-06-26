@@ -1,0 +1,989 @@
+@import "vars.sass"
+
+body
+    text-align: center
+    //overflow: hidden
+
+.touchdummy
+    display: inline-block
+
+.spacer
+    width: 100%
+    height: 20px
+    display: block
+
+    &.double
+        height: 40px
+
+.inputfield
+    //width: calc(100% - 30px)
+    //width: 330px
+    width: 100%
+    height: 40px
+
+    margin-bottom: 20px
+    display: inline-block
+
+    border-radius: 20px
+    overflow: hidden
+
+    background-color: $light-grey
+
+    font: $font-big
+
+    .icon
+        height: 100%
+        width: 50px
+
+        float: left
+
+        background-color: $light-grey-alt
+
+        text-align: center
+        line-height: 40px
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+        &.bad
+            background-color: $bad
+
+        &.good
+            background-color: $good
+
+        // &.loading
+        //     font-size: 2px
+
+        svg
+            fill: $white
+            height: 20px
+            width: auto
+
+        &.alt
+            height: 100%
+            width: 40px
+
+            position: relative
+            float: right
+            margin-top: -40px
+
+            background: none
+
+            span
+                display: inline-block
+                width: 100%
+                height: 100%
+
+                display: flex
+                align-items: center
+                justify-content: center
+
+
+            svg
+                fill: $dark-grey
+
+    input
+        width: calc(100% - 50px - 10px)
+        height: 40px
+
+        float: left
+
+        //vertical-align: top
+
+        padding: 0
+        padding-left: 10px
+        color: $dark-grey
+
+        &::-webkit-input-placeholder
+            color: $grey
+
+        // can be removed if nesseccary
+        &[type="password"]
+            font: small-caption
+            line-height: 1em
+
+        &::-webkit-input-placeholder
+            font: $font-big
+
+    &.search
+        margin-bottom: 0
+        .icon
+            background: none
+
+            svg
+                fill: $dark-grey
+        input
+            padding-left: 0
+
+.container
+    &.search
+        width: calc(100% - 30px)
+        padding: 10px 15px
+        box-shadow: $shadow
+        // Fallback for not rendering boxshadows
+        border: 1px solid $light-grey
+        border-left: none
+        border-right: none
+        margin-left: -1px
+        margin-top: -1px
+
+        background-color: $white
+
+.button
+    height: 40px
+
+    margin-bottom: 20px
+    padding: 0 30px
+    display: inline-block
+
+    border: none
+    border-radius: 20px
+    overflow: hidden
+
+    font: $font-big-bold
+
+    background-color: $primary
+    color: $white
+
+    transition: background $easing
+
+    &:hover
+        background-color: darken($primary, $hover-darken-amount)
+        transition: background $easing
+
+    &.disabled
+        background-color: $light-grey
+        color: $primary
+        transition: background $easing
+
+    .loader
+        font-size: 10px
+        line-height: 16px
+
+.taskfield
+    width: 100%
+    height: 55px
+    overflow: hidden
+    white-space: nowrap
+
+    font-size: 0
+
+    &.option .main
+        margin-left: -102px
+        transition: margin $easing
+
+    .main
+        width: 100%
+        width: 100vw
+        height: 55px
+
+        font: $font-big
+
+        margin-top: -2px
+        margin-left: -1px
+
+        transition: margin $easing
+
+        border: 1px solid $light-grey
+
+        display: inline-flex
+        align-items: center
+
+        .indicator
+            height: 24px
+            width: 24px
+
+            display: inline-block
+            margin: 0 10px 0 20px
+
+            background-size: cover
+            background-position: center
+
+            border-radius: 50%
+
+            //border: 2px solid $primary
+
+            box-shadow: $shadow
+
+            &.done
+                background-color: darken($primary, 10)
+                background-blend-mode: overlay
+
+                display: flex
+                align-items: center
+                justify-content: center
+
+                svg
+                    fill: $white
+                    height: 10px
+                    width: auto
+
+        .title
+            display: inline-block
+            margin-right: 10px
+
+        .information
+            padding: 4px 10px
+            display: inline-block
+            border-radius: 20px
+
+            background-color: $light-grey
+
+            font: $font-normal
+
+        .options
+            height: 100%
+            width: 55px
+
+            display: inline-block
+            margin-left: auto
+
+            display: flex
+            align-items: center
+            justify-content: center
+
+            svg
+                fill: $black
+
+    .delete
+        height: 100%
+        width: 100px
+
+        display: inline-block
+
+        background-color: $bad
+        color: $white
+
+        font: $font-normal
+        line-height: 55px
+        vertical-align: middle
+
+.navigation
+    width: 100% - 30%
+    height: 45px
+
+    position: fixed
+    bottom: 0
+
+    z-index: $ui-layer
+
+    background-color: $white
+    padding: 0 15%
+
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+    box-shadow: $shadow
+    // Fallback for not rendering boxshadows
+    border: 1px solid $light-grey
+    margin-left: -1px
+    margin-bottom: -1px
+
+    .icon
+        width: 45px
+        height: 100%
+
+        display: inline-flex
+        justify-content: center
+        align-items: center
+
+        &.selected svg
+            fill: $primary
+
+.content
+    margin: 45px 0
+    width: 100%
+    // max-height: calc(100vh - 90px)
+    overflow-y: scroll
+    overflow-x: hidden
+
+.header
+    width: 100%
+    height: 45px
+
+    z-index: $ui-layer-higher
+
+    position: fixed
+    top: 0
+
+    background-color: $white
+
+    display: flex
+    align-items: center
+    justify-content: space-around
+
+    box-shadow: $shadow
+    // Fallback for not rendering boxshadows
+    border: 1px solid $light-grey
+    margin-left: -1px
+    margin-top: -1px
+
+    font: $font-title
+    text-align: center
+
+    h1
+        display: inline-block
+        align-self: center
+
+    .profileimage
+        height: 25px
+        width: 25px
+
+        position: absolute
+        right: 10px
+
+        overflow: hidden
+
+        margin-left: auto
+
+        border-radius: 50%
+
+        //box-shadow: $shadow-hard
+
+        background-position: center
+        background-size: cover
+        background-image: url("../sample_profile_image.jpg")
+
+    .close
+        height: 25px
+        width: 25px
+        position: absolute
+        right: 10px
+        margin-left: auto
+
+    .back
+        position: absolute
+        left: 10px
+        height: 25px
+        width: 25px
+
+.item
+    float: left
+    width: 100%
+    display: block
+    margin-top: 20px
+    &.preview
+        margin-top: 20px
+        border-bottom: 1px solid $light-grey
+
+        .button
+            display: inline-block
+            margin: 15px 20px 15px 0
+            height: 20px
+            width: 20px
+            padding: 0
+            background: none
+            fill: $primary
+
+    h2
+        font: $font-big-bold
+        margin-left: 20px
+        float: left
+
+    .thumbnail
+        width: 100%
+        height: 100vw/16*9
+        display: block
+
+        float: left
+        margin-top: 10px
+
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+
+    .video
+        width: 100%
+        height: 100vw/16*9
+        display: block
+
+        float: left
+        margin-top: 10px
+
+        background-color: $light-grey
+
+    .muscles
+        margin: 15px 0 15px 20px
+        float: left
+        display: inline-block
+        width: calc(100% - 20px - 40px)
+        text-align: left
+
+        .muscle
+            height: 12px
+            display: inline-block
+
+            padding: 3px 10px 5px 10px
+            margin-right: 10px
+
+            border-radius: 10px
+
+            font: $font-normal
+            color: $black
+            background-color: $light-grey
+
+            &.selected
+                background-color: $primary
+                color: $white
+
+    .button
+        height: 30px
+        display: block
+        float: right
+        //clear: both
+
+        margin: 15px 20px 10px 0
+        padding: 0 15px
+
+        font: $font-normal
+
+    .section
+        float: left
+        clear: both
+        text-align: left
+        margin: 10px 20px
+
+        h3
+            font: $font-big
+            display: block
+            margin-bottom: 10px
+
+        p
+            font: $font-normal
+
+.difficulty
+    height: 12px
+    display: inline-block
+
+    float: right
+    padding: 3px 10px 5px 10px
+    margin-right: 20px
+
+    border-radius: 10px
+
+    font: $font-normal
+    color: $white
+
+    &.hard
+        background-color: $hard
+
+    &.normal
+        background-color: $normal
+
+    &.easy
+        background-color: $easy
+
+.browseSelection
+    height: calc(100vh - 90px)
+    overflow: hidden
+
+    .muscleSelector, .difficultySelector
+        width: 50%
+
+        box-sizing: border-box
+        border-bottom: 1px solid $white
+
+        background-color: $light-grey
+        background-position: center
+        background-size: cover
+        background-color: #00000044
+        background-blend-mode: darken
+        background-image: url("../background-4.jpg")
+
+        font: $font-big
+        text-shadow: 0px 0px 3px #00000088
+        color: $white
+
+        display: inline-flex
+        justify-content: center
+        align-items: center
+
+    .muscleSelector
+        &:nth-child(2n-1)
+            border-right: 1px solid $white
+
+    .difficultySelector
+        width: 100%
+        height: calc((100vh - 90px) / 3)
+
+        background-color: #FFFF0044
+        background-blend-mode: lighten
+
+        &:last-child
+            background-color: #FF000044
+            background-blend-mode: lighten
+
+        &:first-child
+            background-color: #00FF0044
+            background-blend-mode: lighten
+
+    .informationBox
+        width: 100%
+        height: 55px
+        position: fixed
+        //top: 45px
+        // maybe unsafe (below)
+        position: sticky
+        z-index: $ui-layer-2
+
+        background-color: $white
+        text-align: left
+
+        box-shadow: $shadow
+        // Fallback for not rendering boxshadows
+        border: 1px solid $light-grey
+        margin-left: -1px
+        margin-top: -1px
+
+        display: flex
+        align-items: center
+
+        p
+            font: $font-big-bold
+            margin-left: 20px
+
+        .difficulty
+            margin-left: auto
+
+.schedule
+    &.selection
+        height: 55px
+        width: 100%
+
+        box-sizing: border-box
+        z-index: $ui-layer-2
+        padding: 0 20px
+
+        position: sticky
+
+        box-shadow: $shadow
+        // Fallback for not rendering boxshadows
+        border: 1px solid $light-grey
+        border-right: none
+        border-left: none
+
+        margin-left: -1px
+        margin-top: -1px
+
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        h2
+            font: $font-big
+
+        p
+            font: $font-normal
+            color: $grey
+
+.redirect
+    display: inline-block
+    clear: both
+    margin: 30px 0
+
+    h1
+        font: $font-big
+        margin-bottom: 10px
+    p
+        font: $font-normal
+        line-height: 18px
+
+    img
+        margin-top: 25px
+        width: 50%
+
+    &.centered
+        position: absolute
+        top: 50%
+        transform: translate(-50%,-50%)
+        width: 100%
+
+        h1
+            margin-bottom: 30px
+
+        .buttonContainer
+            margin-top: 30px
+
+            .button
+                height: 35px
+                padding: 0 15px
+                font: $font-normal
+
+.modal
+    z-index: $popup-layer-background
+    width: 100vw
+    height: 100vh
+    position: fixed
+    left: 0
+    top: 0
+    background-color: rgba(0, 0, 0, 0.6)
+
+    font: $font-normal
+
+    .modalcontent
+        width: calc(100vw - 40px)
+        z-index: $popup-layer
+
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+        background-color: $white
+
+        // do not resize with padding
+        box-sizing: border-box
+        padding: 20px
+
+        border-radius: 2px
+
+    .close
+        height: 2em
+        width: 2em
+        position: absolute
+        right: 0
+
+
+        top: -30px
+
+        fill: $white
+
+.menu
+    width: 100%
+    height: calc(100vh - 46px)
+
+    background-color: $white
+    position: absolute
+    top: 46px
+    left: 0
+
+    font: $font-big
+
+    z-index: $popup-layer
+
+    .userinformation
+        height: 90px
+        width: 100%
+
+        box-sizing: border-box
+
+        padding: 20px 30px
+
+        border-bottom: 1px solid $light-grey
+
+        text-align: left
+
+        .profileimage
+            position: inherit
+            float: left
+
+            height: 50px
+            width: 50px
+
+        .info
+            margin-left: 20px
+            margin-top: 6px
+            height: 100%
+            display: inline-block
+
+            .name
+                display: block
+
+            .email
+                margin-top: 2px
+                display: block
+                font: $font-normal
+                color: $grey
+
+    .item
+        margin-top: 20px
+        .icon
+            height: 20px
+            width: 20px
+            display: inline-block
+            float: left
+            margin: 0 35px 0 45px
+
+            svg
+                height: 20px
+                width: 20px
+
+        .title
+            font: $font-big
+            line-height: 20px
+            float: left
+
+    .information
+        position: absolute
+        bottom: 30px
+        left: 50%
+        transform: translateX(-50%)
+
+        font: $font-normal
+        text-align: center
+
+        .name
+            color: $primary
+
+        span
+            display: block
+            margin-top: 10px
+            color: $grey
+
+.datePicker
+    .controlls
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        margin-bottom: 20px
+
+        span
+            font: $font-big
+
+    table
+        width: 100%
+
+        tr
+            width: 100%
+            height: 32px
+            line-height: 32px
+            display: table-row
+
+            th
+                font: $font-normal-bold
+                line-height: 32px
+
+            td
+                text-align: center
+
+    .preview
+        color: lightgrey
+
+    .today
+        color: $primary
+        text-decoration: underline
+
+    .current
+        display: inline-block
+        position: absolute
+        background-color: $primary
+        color: $white
+        border-radius: 50%
+
+        height: 32px
+        width: 32px
+
+        transform: translateX(-50%)
+
+.numberPicker
+    width: 100px
+    height: 30px
+    border-radius: 15px
+    overflow: hidden
+    display: inline-flex
+    justify-content: space-between
+    background-color: $light-grey
+    margin-left: auto
+
+    button
+        height: 30px
+        width: 30px
+        border: none
+        background: none
+        font: $font-normal
+
+    span
+        font: $font-normal-bold
+        font-size: 14px
+        line-height: 30px
+
+.addToSchedule, .copySchedule
+    h1
+        margin: 5px 0
+        margin-bottom: 30px
+        font: $font-big
+
+    p
+        line-height: 18px
+
+    .buttons
+        margin-top: 20px
+        display: flex
+        justify-content: space-between
+
+        .cancel
+            text-decoration: underline
+            display: inline-block
+            font: $font-normal
+            line-height: 30px
+            color: $dark-grey
+
+        .confirm
+            width: 60px
+
+            .loader
+                font-size: 10px
+
+    .line
+        width: 100%
+        height: 30px
+        margin: 20px 0 0 0
+
+        label
+            float: left
+            font: $font-big
+            line-height: 30px
+            display: inline-block
+
+        .numberPicker
+            float: right
+
+
+    .successfullyAdded, .successfullyCopied
+        img
+            height: 150px
+            margin: 50px 0
+
+        p
+            margin-bottom: 15px
+
+.cta
+    display: inline-block
+    height: 30px
+    border-radius: 15px
+    padding: 0 20px
+    background-color: $primary
+    color: $white
+    font: $font-normal
+    line-height: 30px
+
+.videoplayer
+    width: 100vw
+    height: 100vw/16*9
+    display: inline-block
+    margin-top: 15px
+
+    &.fullscreen
+        height: 100vw
+        width: 100vh
+        background-color: $black
+        z-index: $popup-layer
+        position: absolute
+        transform-origin: 100% 0
+        right: 0
+        top: 0
+        transform: rotate(-90deg) translate(0, -100%)
+        margin: 0
+
+    video
+        height: 100%
+        width: 100%
+
+        &[poster]
+            object-fit: cover
+
+
+    .controlls
+        height: 100%
+        width: 100%
+        background-color: rgba(0,0,0,0.5)
+        position: relative
+        transform: translateY(-100%)
+        opacity: 0
+        transition: opacity 200ms ease-in-out
+        margin-top: -1000%
+
+        &.visible
+            opacity: 1
+            margin-top: 0
+            transition: opacity 200ms ease-in-out
+
+        svg
+            height: 100%
+            width: auto
+            fill: $white
+
+        .topnav
+            width: calc(100% - 20px)
+            height: 18px
+
+            position: relative
+            top: 10px
+            left: 10px
+
+            display: flex
+            justify-content: space-between
+
+        .mainnav
+            width: 150px
+            height: 48px
+
+            line-height: 48px
+
+            position: relative
+            top: 50%
+            left: 50%
+            margin-top: -18px
+            transform:  translate(-50%, -50%)
+
+            display: flex
+            align-items: center
+            justify-content: space-between
+
+            svg
+                height: 100%
+
+            div
+                height: 100%
+
+                &:first-child, &:last-child
+                    height: 32px
+
+        .bottomnav
+            width: calc(100% - 20px)
+            height: 8px
+
+            position: absolute
+            bottom: 10px
+            left: 10px
+
+            input[type=range]
+                height: 6px
+                width: calc(100% - 20px - 10px)
+
+                margin-top: 1px
+
+                float: left
+            //
+            //     &::-webkit-slider-runnable-track
+            //         background-color: $primary
+            //
+            //     &::-webkit-slider-thumb
+            //         // border: 1px solid #000000
+            //         // height: 3px
+            //         // width: 8px
+            //         // border-radius: 3px
+            //         // background: none
+            //         // background-color: #fff
+            //         // cursor: pointer
+            //         //
+            //         // margin-top: -14px
+            //         // -webkit-appearance: none
+            //         -webkit-appearance: none
+            //         border: none
+            //         height: 16px
+            //         width: 16px
+            //         border-radius: 50%
+            //         background: green
+            //         margin-top: -7px
+
+            span
+                float: right
+                font: $font-normal
+                font-size: 8px
+                line-height: 8px
+                color: white

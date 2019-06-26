@@ -1,0 +1,138 @@
+@import "@/assets/styles/vars.sass"
+
+.login, .register
+    width: calc(100vw - 40px)
+    height: 100vh
+    padding: 0 20px
+    margin: 0
+
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-size: cover
+    background-position: center
+    //background-color: #FFFFFFee
+    // cc bei 2 blured 88!
+    //background-color: #FFFFFF88
+    //background-blend-mode: lighten
+
+    .logo
+        width: 35%
+        height: auto
+
+        position: absolute
+        top: 40%
+        left: 50%
+        transform: translate(-50%, -130%)
+
+    .form
+        width: inherit
+
+        position: absolute
+        top: 40%
+        left: 50%
+        transform: translateX(-50%)
+
+        font: $font-big
+
+        .inputfield
+            background-color: rgba($light-grey, 0.5)
+
+
+        .information
+            display: block
+            text-align: left
+            font: $font-normal
+            color: $grey
+
+            margin: 0 10px 20px 10px
+
+            float: left
+
+        .registerCTA, .loginCTA
+            float: left
+            margin-left: 10px
+
+            vertical-align: top
+            text-align: left
+
+            color: $dark-grey
+
+            .link
+                color: $primary
+                color: darken($primary, 10)
+                text-decoration: underline
+                cursor: pointer
+
+        .buttonContainer
+            float: right
+
+            .button.disabled
+                background-color: rgba($light-grey, 0.5)
+                color: darken($primary, 10)
+
+
+        .errors
+            clear: both
+
+            float: left
+            margin-left: 10px
+
+            text-align: left
+
+            font: $font-normal
+            color: $bad
+
+            .message
+                margin-bottom: 5px
+
+    .company
+        position: absolute
+        font: $font-normal-bold
+        color: $primary
+        color: darken($primary, 10)
+
+        bottom: 10px
+        left: 50%
+        transform: translateX(-50%)
+
+.search.content
+    margin-top: 45px + 60px
+
+    .container.search
+        position: fixed
+        z-index: $ui-layer-2
+        top: 45px
+
+.schedule
+    h1.section
+        text-align: left
+
+        padding: 30px 0 10px 20px
+
+        font: $font-big-bold
+        border-bottom: 1px solid $light-grey
+
+.verify
+    div
+        position: absolute
+        width: 70%
+
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+        p
+            font: $font-big
+            line-height: 24px
+            margin-bottom: 20px
+
+            &.bold
+                font: $font-big-bold
+
+        img
+            width: 50%
+            margin-bottom: 20px
+
+        .button
+            line-height: 40px
+            display: inline-block

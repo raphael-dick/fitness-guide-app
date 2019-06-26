@@ -1,0 +1,30 @@
+.slide-enter-active
+    transition-duration: 0.3s
+    transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1)
+    overflow: hidden
+
+.slide-enter-active
+    //transform: translate(100%, 0)
+    animation: slide .5s
+
+.slide-leave-active
+    //transform: translate(100%, 0)
+    animation: slide .5s reverse
+
+@keyframes slide
+  0%
+    transform: translate(100%, 0)
+  100%
+    transform: translate(0, 0)
+
+.slide-left-enter-active
+    transition-duration: 0.5s
+    transition-property: height, opacity, transform
+    transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1)
+    overflow: hidden
+
+.slide-left-enter
+    transform: translate(-100%, 0)
+
+.slide-left-leave-active
+    transform: translate(0, 0)
